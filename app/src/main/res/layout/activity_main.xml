@@ -22,10 +22,17 @@
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             />
 
+        <!--  FragmentContainer  -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
 
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
 
-
-
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:navGraph="@navigation/nav_graph"
+            />
     </LinearLayout>
 
 
