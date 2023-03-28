@@ -11,5 +11,18 @@
         android:id="@+id/indexFragment"
         android:name="id.ac.ibda.pads.proyekuts.IndexFragment"
         android:label="fragment_index"
-        tools:layout="@layout/fragment_index" />
+        tools:layout="@layout/fragment_index" >
+        <action
+            android:id="@+id/action_indexFragment_to_chooseGame"
+            app:destination="@id/chooseGame" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseGame"
+        android:name="id.ac.ibda.pads.proyekuts.ChooseGame"
+        android:label="fragment_choose_game"
+        tools:layout="@layout/fragment_choose_game" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="id.ac.ibda.pads.proyekuts.QuizFragment"
+        android:label="QuizFragment" />
 </navigation>
