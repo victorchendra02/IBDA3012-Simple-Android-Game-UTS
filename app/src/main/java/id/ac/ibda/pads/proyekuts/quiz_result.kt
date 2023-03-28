@@ -22,6 +22,7 @@ class quiz_result : Fragment() {
         val viewModel = ViewModelProvider(requireActivity())[myViewModel::class.java]
 
         binding.quizScore.text = "${viewModel.quiz_score} / 10"
+        binding.thanksName.text = "Thanks for playing, hope you enjoy it ${viewModel.player_name}!"
 
         binding.quizFinished.setOnClickListener {
             val navController = view.findNavController()

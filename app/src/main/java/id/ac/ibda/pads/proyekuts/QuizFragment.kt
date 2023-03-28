@@ -109,10 +109,10 @@ class QuizFragment : Fragment() {
 
         val alertTitle: String
         if (btnText == rightAnswer) {
-            alertTitle = "Correct"
+            alertTitle = "Correct ✅"
             rightAnswerCount++
         } else {
-            alertTitle = "Wrong"
+            alertTitle = "Wrong ❌"
         }
         AlertDialog.Builder(requireContext())
             .setTitle(alertTitle)
