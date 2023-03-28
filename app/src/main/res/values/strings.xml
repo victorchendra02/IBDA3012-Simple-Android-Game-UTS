@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Quiz Game [202000338]</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="EnterName"><font size="15">Enter your name</font></string>
+    <string name="qNumber">No %d</string>
+    <string name="question">Question</string>
+    <string name="btn_answer">Choice</string>
+    <string name="quizResult">% / 10</string>
+
 </resources>

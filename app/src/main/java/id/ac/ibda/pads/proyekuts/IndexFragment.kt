@@ -30,5 +30,4 @@ class IndexFragment : Fragment() {
         }
         return view
     }
-
 }

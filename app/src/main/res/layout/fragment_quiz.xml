@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizFragment">
+    tools:context=".QuizFragment"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/qNumber"
 
-</FrameLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="@string/qNumber"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/questionLabel"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+
+        android:text="@string/question"
+        android:textSize="26sp"
+
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/ansTrue"
+
+        android:layout_width="230dp"
+        android:layout_height="64dp"
+
+        android:text="True"
+
+        android:onClick="checkAnswer"
+        />
+
+    <Button
+        android:id="@+id/ansFalse"
+
+        android:layout_width="230dp"
+        android:layout_height="64dp"
+
+        android:text="False"
+        android:onClick="checkAnswer"
+        />
+
+    <TextView
+        android:id="@+id/textView3"
+
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="©IBDA3012 Mid Term Project by 202000338"
+        android:textSize="10sp"
+
+        />
+
+</LinearLayout>

@@ -20,9 +20,26 @@
         android:id="@+id/chooseGame"
         android:name="id.ac.ibda.pads.proyekuts.ChooseGame"
         android:label="fragment_choose_game"
-        tools:layout="@layout/fragment_choose_game" />
+        tools:layout="@layout/fragment_choose_game" >
+        <action
+            android:id="@+id/action_chooseGame_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
     <fragment
         android:id="@+id/quizFragment"
         android:name="id.ac.ibda.pads.proyekuts.QuizFragment"
-        android:label="QuizFragment" />
+        android:label="QuizFragment" >
+        <action
+            android:id="@+id/action_quizFragment_to_quiz_result"
+            app:destination="@id/quiz_result" />
+    </fragment>
+    <fragment
+        android:id="@+id/quiz_result"
+        android:name="id.ac.ibda.pads.proyekuts.quiz_result"
+        android:label="fragment_quiz_result"
+        tools:layout="@layout/fragment_quiz_result" >
+        <action
+            android:id="@+id/action_quiz_result_to_chooseGame"
+            app:destination="@id/chooseGame" />
+    </fragment>
 </navigation>

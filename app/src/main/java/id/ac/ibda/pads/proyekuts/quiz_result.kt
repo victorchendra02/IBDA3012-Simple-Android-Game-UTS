@@ -7,31 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import id.ac.ibda.pads.proyekuts.databinding.FragmentChooseGameBinding
+import id.ac.ibda.pads.proyekuts.databinding.FragmentQuizResultBinding
 
-class ChooseGame : Fragment() {
+class quiz_result : Fragment() {
 
-    private lateinit var binding: FragmentChooseGameBinding
-//    private lateinit var viewModel: myViewModel
+    private lateinit var binding: FragmentQuizResultBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentChooseGameBinding.inflate(inflater, container, false)
-
+        binding = FragmentQuizResultBinding.inflate(inflater, container, false)
         val view = binding.root
         val viewModel = ViewModelProvider(requireActivity())[myViewModel::class.java]
 
-        // parse var to other fragment
-        binding.showPlayerName.text = viewModel.player_name
+        binding.quizScore.text = "${viewModel.quiz_score} / 10"
 
-        // navigation to other fragment
-        binding.startQuizButton.setOnClickListener {
+        binding.quizFinished.setOnClickListener {
             val navController = view.findNavController()
-            navController.navigate(R.id.action_chooseGame_to_quizFragment)
+            navController.navigate(R.id.action_quiz_result_to_chooseGame)
         }
         return view
     }
-
 }
