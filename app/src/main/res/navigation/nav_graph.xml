@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_chooseGame_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_chooseGame_to_hangmanFragment"
+            app:destination="@id/hangmanFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizFragment"
@@ -42,4 +45,9 @@
             android:id="@+id/action_quiz_result_to_chooseGame"
             app:destination="@id/chooseGame" />
     </fragment>
+    <fragment
+        android:id="@+id/hangmanFragment"
+        android:name="id.ac.ibda.pads.proyekuts.HangmanFragment"
+        android:label="fragment_hangman"
+        tools:layout="@layout/fragment_hangman" />
 </navigation>
