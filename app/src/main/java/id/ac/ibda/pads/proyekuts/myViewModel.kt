@@ -12,6 +12,8 @@ class myViewModel : ViewModel() {
     var usedLetters = arrayOf<String>()
     var incorrectGuesses = 0
 
+    var hangmanResult = false
+
     fun iDontKnowWhattoNamedIt(): Array<Any> {
         return arrayOf(hangmanAnswer, currentAnswer, usedLetters, incorrectGuesses)
     }

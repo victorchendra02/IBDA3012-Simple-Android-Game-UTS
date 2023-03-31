@@ -49,5 +49,23 @@
         android:id="@+id/hangmanFragment"
         android:name="id.ac.ibda.pads.proyekuts.HangmanFragment"
         android:label="fragment_hangman"
-        tools:layout="@layout/fragment_hangman" />
+        tools:layout="@layout/fragment_hangman" >
+        <action
+            android:id="@+id/action_hangmanFragment_to_hangman_result"
+            app:destination="@id/hangman_result" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="id.ac.ibda.pads.proyekuts.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/hangman_result"
+        android:name="id.ac.ibda.pads.proyekuts.hangman_result"
+        android:label="fragment_hangman_result"
+        tools:layout="@layout/fragment_hangman_result" >
+        <action
+            android:id="@+id/action_hangman_result_to_chooseGame"
+            app:destination="@id/chooseGame" />
+    </fragment>
 </navigation>

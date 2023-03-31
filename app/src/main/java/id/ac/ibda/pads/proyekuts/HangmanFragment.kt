@@ -18,7 +18,7 @@ class HangmanFragment : Fragment() {
     private lateinit var binding: FragmentHangmanBinding
 
     private val arrayOfWord = arrayOf(
-        "Lion"
+        "Lion", "Kangaroo", "Flamingo"
     )
 
     private val realAnswer = arrayOfWord.random().uppercase()
@@ -127,10 +127,28 @@ class HangmanFragment : Fragment() {
             }
         }
 
-        // Jata tebak habis
+        // Jatah tebak habis
         else {
             println("GAME OVER")
             println("YOU LOSE")
+        }
+
+        if (incorrectGuesses == maxIncorrectGuesses) {
+            binding.buttonCheck.text = "RESULT"
+            binding.tebakkan.visibility = View.GONE
+
+            val navController = view?.findNavController()
+            navController?.navigate(R.id.action_hangmanFragment_to_hangman_result)
+        }
+
+        if ("_" !in viewModel.currentAnswer) {
+            viewModel.hangmanResult = true
+
+            binding.buttonCheck.text = "RESULT"
+            binding.tebakkan.visibility = View.GONE
+
+            val navController = view?.findNavController()
+            navController?.navigate(R.id.action_hangmanFragment_to_hangman_result)
         }
     }
 

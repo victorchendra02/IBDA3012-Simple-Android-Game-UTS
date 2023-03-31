@@ -10,5 +10,6 @@
     <string name="quizResult">% / 10</string>
 
     <string name="numberGuessed">Number guessed: %s / 7</string>
+    <string name="about">Victor Chendra\n202000338</string>
 
 </resources>
