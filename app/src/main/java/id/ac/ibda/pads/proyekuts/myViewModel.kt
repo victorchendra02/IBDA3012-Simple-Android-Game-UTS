@@ -8,8 +8,11 @@ class myViewModel : ViewModel() {
 
     var hangmanAnswer = ""
     var currentAnswer = mutableListOf<String>()
+    var isHasBeenInit = false
+    var usedLetters = arrayOf<String>()
+    var incorrectGuesses = 0
 
-    fun dosomth(): String {
-        return player_name
+    fun iDontKnowWhattoNamedIt(): Array<Any> {
+        return arrayOf(hangmanAnswer, currentAnswer, usedLetters, incorrectGuesses)
     }
 }

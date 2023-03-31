@@ -18,7 +18,7 @@ class HangmanFragment : Fragment() {
     private lateinit var binding: FragmentHangmanBinding
 
     private val arrayOfWord = arrayOf(
-        "Lion", "Kangaroo"
+        "Lion"
     )
 
     private val realAnswer = arrayOfWord.random().uppercase()
@@ -37,10 +37,14 @@ class HangmanFragment : Fragment() {
 
 
         // 1
-        initializeGame(viewModel)
+        if (viewModel.isHasBeenInit == true) { surviveConfiguration(viewModel) }
+
+        if (viewModel.isHasBeenInit == false) { initializeGame(viewModel) }
+
 
         binding.buttonCheck.setOnClickListener {
             check_guesses(hidden, realAnswer, viewModel)
+            binding.tebakkan.setText("")
         }
         return view
     }
@@ -55,40 +59,78 @@ class HangmanFragment : Fragment() {
 
         binding.hiddenWord.text = hidden
         binding.numberGuessed.text = "Number guessed: 0/$maxIncorrectGuesses"
+        viewModel.isHasBeenInit = true
+    }
+
+    private fun surviveConfiguration(viewModel: myViewModel) {
+        val temp = viewModel.iDontKnowWhattoNamedIt()
+        usedLetters = temp[2] as Array<String>
+        binding.letterUsed.text = usedLetters.joinToString(" ")
+
+        var currentAnswer = temp[1] as MutableList<String>
+        var newCA = ""
+        for (i in currentAnswer){ newCA += i.toString() }
+        binding.hiddenWord.text = newCA
+
+        incorrectGuesses = temp[3] as Int
+        binding.numberGuessed.text = "Number guessed: $incorrectGuesses/$maxIncorrectGuesses"
+
     }
 
     fun check_guesses(hidden: String, realAnswer: String, viewModel: myViewModel) {
+
+        // Masih ada jatah tebak
         if (incorrectGuesses != maxIncorrectGuesses) {
-            val tebakkannya = binding.tebakkan.text.toString().uppercase()
 
-            // Salah tebak
-            if (!realAnswer.contains(tebakkannya)) {
-                // Karakter belum pernah ditebak
-                if (tebakkannya !in usedLetters) {
-                    usedLetters += tebakkannya
-                    binding.letterUsed.text = usedLetters.joinToString(separator = " ")
-                    incorrectGuesses++
-                }
-                // Karakter sudah pernah ditebak
-                else {
-                    println("DO NOTHING!")
-                }
-            }
+            // Masih ada yang belum ditebak
+            if ("_" in viewModel.currentAnswer) {
+                val tebakkannya = binding.tebakkan.text.toString().uppercase()
 
-            // Benar tebak
-            else {
-                var i = 0
-                var temp = viewModel.hangmanAnswer.toString()
+                // Salah tebak
+                if (!realAnswer.contains(tebakkannya)) {
 
-                while (i < temp.length) {
-                    if (temp[i].toString() == tebakkannya) {
-                        viewModel.currentAnswer[i] = tebakkannya
+                    // Karakter belum pernah ditebak
+                    if (tebakkannya !in usedLetters) {
+                        usedLetters += tebakkannya
+                        binding.letterUsed.text = usedLetters.joinToString(separator = " ")
+
+                        viewModel.usedLetters = usedLetters
+
+                        incorrectGuesses++
+                        viewModel.incorrectGuesses = incorrectGuesses
                     }
-                    i++
+
+                    // Karakter sudah pernah ditebak
+                    else {
+                        println("DO NOTHING!")
+                    }
                 }
-                binding.hiddenWord.text = viewModel.currentAnswer.joinToString(separator = "")
+
+                // Benar tebak
+                else {
+                    var i = 0
+                    var temp = viewModel.hangmanAnswer.toString()
+
+                    while (i < temp.length) {
+                        if (temp[i].toString() == tebakkannya) {
+                            viewModel.currentAnswer[i] = tebakkannya
+                        }
+                        i++
+                    }
+                    binding.hiddenWord.text = viewModel.currentAnswer.joinToString(separator = "")
+                }
+                binding.numberGuessed.text = "Number guessed: $incorrectGuesses/$maxIncorrectGuesses"
             }
-            binding.numberGuessed.text = "Number guessed: $incorrectGuesses/$maxIncorrectGuesses"
+            else {
+                println("GAME IS DONE")
+                println("YOU WIN")
+            }
+        }
+
+        // Jata tebak habis
+        else {
+            println("GAME OVER")
+            println("YOU LOSE")
         }
     }
 
