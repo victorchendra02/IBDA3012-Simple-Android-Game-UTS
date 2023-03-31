@@ -6,7 +6,8 @@ class myViewModel : ViewModel() {
     var player_name = "";
     var quiz_score = 0;
 
-    var soalHangman = ""
+    var hangmanAnswer = ""
+    var currentAnswer = mutableListOf<String>()
 
     fun dosomth(): String {
         return player_name

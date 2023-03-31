@@ -8,20 +8,73 @@
     tools:context=".HangmanFragment">
 
     <TextView
-        android:id="@+id/questWord"
+        android:id="@+id/hiddenWord"
 
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
 
-        android:text="_*len(word)"
-        android:textSize="32sp"
+        android:letterSpacing="0.3"
+        android:text="_________"
+        android:textSize="40sp"
         android:textStyle="bold"
+        android:textColor="#000000"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintVertical_bias="0.386" />
+
+    <TextView
+        android:id="@+id/textView7"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:text="Letter Used"
+        android:textSize="24sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/hiddenWord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.743" />
+
+    <TextView
+        android:id="@+id/letterUsed"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:text=""
+        android:textSize="24sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/hiddenWord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.142" />
+
+    <TextView
+        android:id="@+id/numberGuessed"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="40dp"
+
+        android:text="@string/numberGuessed"
+        android:textSize="20sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/tebakkan"
+        app:layout_constraintTop_toBottomOf="@+id/hiddenWord"
+        app:layout_constraintVertical_bias="0.827"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/buttonCheck"
@@ -33,7 +86,7 @@
         app:layout_constraintHorizontal_bias="0.245"
         app:layout_constraintStart_toEndOf="@+id/tebakkan"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571" />
+        app:layout_constraintVertical_bias="0.649" />
 
     <EditText
         android:id="@+id/tebakkan"
@@ -41,19 +94,19 @@
         android:layout_width="200dp"
         android:layout_height="68dp"
 
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="36dp"
 
         android:ems="10"
         android:hint="Input 1 character"
-        android:inputType="textPersonName"
+        android:inputType="text"
 
         android:maxLength="1"
-        android:textSize="20sp"
+        android:textSize="24sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintVertical_bias="0.647" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

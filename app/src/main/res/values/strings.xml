@@ -9,4 +9,6 @@
     <string name="btn_answer">Choice</string>
     <string name="quizResult">% / 10</string>
 
+    <string name="numberGuessed">Number guessed: %s / 7</string>
+
 </resources>
